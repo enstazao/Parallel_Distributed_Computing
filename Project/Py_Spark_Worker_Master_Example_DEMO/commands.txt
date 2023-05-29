@@ -1,0 +1,9 @@
+## Up all the Container
+sudo docker-compose up -d 
+
+### Go to Master Container
+docker exec -it py_spark_worker_master_example_spark-master_1 /bin/bash
+
+### To run the wordcount file placed in the Go to master and run this
+
+/opt/spark/bin/spark-submit   --master spark://spark-master:7077   --jars /opt/spark-apps/postgresql-42.2.22.jar   --driver-memory 1G   --executor-memory 1G   /opt/spark-apps/wordcount.py   > /opt/spark-data/output.txt 2>&1
